@@ -56,17 +56,18 @@ interface Params {
 class JYMonitor {
   static navigator: any;
   static projectKey: string;
+  static logError: Function;
   performance: any;
   constructor({ projectKey }: Params) {
     JYMonitor.navigator = getNavigator()
     JYMonitor.projectKey = projectKey
+    JYMonitor.logError = this.logError
     this.performance = {}
     this._initRouterEach()
     this.listenError()
     this.xhrReplace()
     this._initOnLoad()
     this._initBeforeUnload()
-    window.JYMonitor = JYMonitor
   }
 
   private xhrReplace () {
@@ -245,4 +246,4 @@ class JYMonitor {
 
 }
 
-export default JYMonitor
+window.JYMonitor = JYMonitor

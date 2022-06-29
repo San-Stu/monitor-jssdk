@@ -1,4 +1,5 @@
 import MobileDetect from 'mobile-detect'
+import Cookie from 'js-cookie'
 
 const getBrowser = () => {
   const UserAgent: any = navigator.userAgent.toLowerCase()
@@ -51,11 +52,11 @@ const getNavigator = () => {
   if (!window.navigator) return
   const md = new MobileDetect(window.navigator.userAgent)
   const browserInfo = getBrowser()
-  const ypcookie = ($ as any).cookie('ypcookie')
+  const ypcookie = Cookie.get('ypcookie')
   const uid = ypcookie ? ypcookie.split('&')[0].split('=')[1] : ''
   // ip服务端获取
   const navigator: any = {
-    appVersion: ($ as any).cookie('app_version') || '',
+    appVersion: Cookie.get('app_version') || '',
     uid,
     browser: browserInfo.type,
     browserVersion: browserInfo.versions || ''
