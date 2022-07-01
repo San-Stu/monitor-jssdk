@@ -25,7 +25,7 @@ const waitIdle = (fn: Function) => {
   }
 }
 
-const baseUrl = 'http://10.99.1.17:3000/collect'
+const baseUrl = 'http://sanstu.com/api/collect'
 const uploadByGif = (url: string, data: object) => {
   data = {
     ...data,
